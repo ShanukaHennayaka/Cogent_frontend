@@ -1,0 +1,73 @@
+#overview {
+    overflow: hidden;
+    width: 100vw;
+    max-width: 65rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.overviewTitle {
+    font-size: 3rem;
+    font-weight: 600;
+    padding-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.overviewDesc {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
+    max-width: 50rem;
+    padding: 0 2rem;
+}
+
+.overviewBars {
+    margin: 1.5rem;
+    width: 50vw;
+    max-width: 80%;
+    text-align: center;
+}
+
+.overviewBar {
+    display: flex;
+    margin: 1rem;
+    padding: 1.5rem 2rem;
+    border-radius: 0.5rem;
+    background: rgb(50,50,50);
+}
+
+.overviewBarImg {
+    object-fit: cover;
+    height: 5rem;
+    width: 5rem;
+    margin-right: 2rem;
+    border-radius:0.5rem;
+}
+
+.overviewBarText>h2 {
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+@media screen and (max-width:720px) {
+    .overviewBarText>h2 {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .overviewBarText>h2 {
+        font-size: 3vw;
+    }
+    .overviewBarImg {
+        height: 2.25rem;
+        width: 2.25rem;
+    }
+    .overviewBarText {
+        font-size: 5vw;
+    }
+}

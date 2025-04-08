@@ -1,0 +1,70 @@
+#intro {
+    height: calc(100vh - 4rem);
+    width: 100vw;
+    max-width: 75rem;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg{
+    position: absolute;
+    top: 8rem;
+    right: 0rem;
+    z-index: -1;
+    object-fit: cover;
+    height: 50vh;
+    border-radius: 15%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    animation: floatUpDown 6s ease-in-out infinite;
+}
+
+.introContent {
+    height: 100vh;
+    width: 100vw;
+    padding: 2rem;
+    font-size: 3rem;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(-4rem);
+}
+
+.organize {
+    font-size: 1.25rem;
+    font-weight: 200;
+}
+
+.introText {
+    padding-top: 1.5rem;
+}
+
+.introName {
+    color: rgb(31, 81, 255);
+}
+
+.introPara {
+    padding-top: 1.5rem;
+    font-size: medium;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+@media screen and (max-width:850px) {
+    .bg {
+        right: -10vh;
+    }
+    .introContent {
+        font-size: 8vw;
+    }
+    .organize {
+        font-size: 4vw;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .bg {
+        right: -30vh;
+    }
+}
