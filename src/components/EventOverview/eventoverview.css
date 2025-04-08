@@ -1,4 +1,5 @@
 #overview {
+    background: linear-gradient(to right, #667eea, #764ba2);
     overflow: hidden;
     width: 100vw;
     max-width: 65rem;
