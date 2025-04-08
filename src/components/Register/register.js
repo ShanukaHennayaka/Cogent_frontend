@@ -84,7 +84,7 @@ const Register = () => {
                   required
                 />
               </div>
-
+              
               <input
                 type="tel"
                 name="mobile"
