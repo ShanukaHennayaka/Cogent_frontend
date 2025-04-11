@@ -1,4 +1,4 @@
-import React, {useState}from "react";
+import React, { useState } from "react";
 import './navbar.css';
 import logo from "../../assets/cogent-logo-01.png";
 import menu from "../../assets/menuicon.png";
@@ -20,7 +20,7 @@ const Navbar = () => {
             </div>
 
             <button className="desktopMenuBtn" onClick={() => {
-                document.getElementById('register').scrollIntoView({ behavior: 'smooth'});
+                document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
             }}>
                 <img src={reg} alt="reg" className="desktopMenuImg" />Register Now</button>
 

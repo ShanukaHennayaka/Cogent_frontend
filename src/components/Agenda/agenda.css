@@ -1,117 +1,285 @@
-.agenda-section {
-    padding: 80px 20px;
-    text-align: center;
+:root {
+  --agenda-bg: aliceblue;
+  --agenda-card-bg: #ffffff;
+  --agenda-text-primary: #2d3748;
+  --agenda-text-secondary: #4a5568;
+  --agenda-time-color: var(--accent-2);
+  --agenda-title-color: linear-gradient(45deg, var(--accent-1), var(--accent-2));
+  --agenda-duration-badge-bg: rgba(0, 180, 216, 0.1);
+  --agenda-duration-badge-color: var(--accent-2);
+  --agenda-dot-gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  --agenda-connector-gradient: linear-gradient(to bottom, var(--accent-1), var(--accent-2));
+  --agenda-card-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  --agenda-card-hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  --agenda-card-border: 4px solid var(--accent-2);
+  --agenda-tba-bg: rgba(255, 111, 97, 0.1);
+  --agenda-tba-color: var(--accent-1);
+  --agenda-speaker-color: #2d3748;
+  --agenda-speaker-icon: var(--accent-1);
+  --agenda-hover-highlight: rgba(0, 180, 216, 0.05);
+}
+
+.dark {
+  --agenda-bg: #121212;
+  --agenda-card-bg: #252525;
+  --agenda-card-hover-bg: #383838;
+  --agenda-text-primary: #f8fafc;
+  --agenda-text-secondary: rgba(255, 255, 255, 0.7);
+  --agenda-text-hover: var(--accent-2);
+  --agenda-time-color: var(--accent-2);
+  --agenda-duration-badge-bg: rgba(128, 222, 234, 0.2);
+  --agenda-dot-gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  --agenda-connector-gradient: linear-gradient(to bottom, var(--accent-1), var(--accent-2));
+  --agenda-card-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --agenda-card-hover-shadow: 0 8px 25px rgba(128, 222, 234, 0.15);
+  --agenda-tba-bg: rgba(255, 158, 128, 0.2);
+  --agenda-speaker-color: var(--accent-2);
+  --agenda-speaker-hover: var(--accent-1);
+  --agenda-hover-highlight: rgba(128, 222, 234, 0.1);
+}
+
+#agenda {
+  padding: 6rem 8%;
+  background: var(--agenda-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.agenda-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.agenda-title {
+  font-size: 3rem;
+  background: var(--agenda-title-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 12px rgba(97, 102, 255, 0.2);
+}
+
+.agenda-description {
+  font-size: 1.2rem;
+  color: var(--agenda-text-primary);
+  line-height: 1.6;
+}
+
+.agenda-timeline {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 20px;
+}
+
+.agenda-item {
+  display: flex;
+  margin-bottom: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.agenda-dot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 20px;
+  position: relative;
+}
+
+.agenda-dot {
+  width: 20px;
+  height: 20px;
+  background: var(--agenda-dot-gradient);
+  border-radius: 50%;
+  border: 3px solid var(--agenda-card-bg);
+  box-shadow: 0 0 0 4px var(--shadow-color);
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.agenda-connector {
+  width: 2px;
+  background: var(--agenda-connector-gradient);
+  flex-grow: 1;
+  margin: 5px 0;
+}
+
+.agenda-content {
+  flex: 1;
+}
+
+.agenda-time {
+  font-weight: bold;
+  color: var(--agenda-time-color);
+  font-size: 1.1rem;
+  background: var(--agenda-duration-badge-bg);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.agenda-duration-badge {
+  background: var(--agenda-duration-badge-bg);
+  color: var(--agenda-duration-badge-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.agenda-card {
+  background: var(--agenda-card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--agenda-card-shadow);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-left: var(--agenda-card-border);
+  color: var(--agenda-text-primary);
+  cursor: pointer;
+}
+
+.agenda-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--agenda-card-hover-shadow);
+}
+
+.dark .agenda-card:hover {
+  background: var(--agenda-card-hover-bg);
+  border-left-color: var(--accent-1);
+}
+
+.agenda-item-title {
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  color: var(--agenda-text-primary);
+  transition: color 0.3s ease;
+}
+
+.agenda-card:hover .agenda-item-title {
+  color: var(--accent-2);
+}
+
+.dark .agenda-card:hover .agenda-item-title {
+  color: var(--agenda-text-hover);
+}
+
+.agenda-speaker {
+  margin: 1rem 0;
+}
+
+.speaker-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+  background: var(--agenda-hover-highlight);
+  padding: 0.8rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.speaker-item:hover {
+  background: var(--agenda-duration-badge-bg);
+  transform: translateX(3px);
+}
+
+.dark .speaker-item:hover {
+  background: rgba(128, 222, 234, 0.15);
+}
+
+.speaker-icon {
+  margin-right: 10px;
+  color: var(--agenda-speaker-icon);
+}
+
+.speaker-item p {
+  color: var(--agenda-speaker-color);
+  margin: 0;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.dark .speaker-item:hover p {
+  color: var(--agenda-speaker-hover);
+}
+
+.agenda-description {
+  color: var(--agenda-text-secondary);
+  line-height: 1.6;
+  margin: 0.5rem 0 0;
+  transition: color 0.3s ease;
+}
+
+.dark .agenda-card:hover .agenda-description {
+  color: rgba(50, 73, 228, 0.85);
+}
+
+.tba-badge {
+  display: inline-block;
+  background: var(--agenda-tba-bg);
+  color: var(--agenda-tba-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.agenda-card:active {
+  transform: translateY(2px);
+}
+
+.dark .agenda-card:active {
+  background: #303030;
+}
+
+.dark .agenda-card:active:hover {
+  background: blue;
+}
+
+.dark .agenda-description {
+  color: #121212;
+}
+
+.dark .agenda-item-title {
+  color: #1a4ea8;
+}
+
+@media (max-width: 768px) {
+  #agenda {
+    padding: 4rem 5%;
   }
-  
+
   .agenda-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 50px;
-    letter-spacing: 2px;
+    font-size: 2.2rem;
   }
-  
-  .agenda-timeline {
-    position: relative;
-    border-left: 5px solid rgb(31, 81, 255);
-    padding-left: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
+
   .agenda-item {
-    position: relative;
-    margin-bottom: 40px;
+    flex-direction: column;
   }
-  
-  .agenda-dot {
-    position: absolute;
-    left: -12px;
-    top: 8px;
-    width: 20px;
-    height: 20px;
-    background-color: rgb(31, 81, 255);
-    border: 4px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px rgb(31, 81, 255);
-    transition: all 0.3s ease;
+
+  .agenda-dot-container {
+    flex-direction: row;
+    padding-right: 0;
+    padding-bottom: 15px;
   }
-  
-  .agenda-dot:hover {
-    transform: scale(1.2);
+
+  .agenda-connector {
+    width: 100%;
+    height: 2px;
+    margin: 0 15px;
   }
-  
-  .agenda-content {
-    border: 1px solid rgb(31, 81, 255);
-    background: rgb(50,50,50);
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(4, 53, 132, 0.1);
-    transition: all 0.3s ease;
-    animation: slideIn 0.5s ease-out;
+}
+
+@media (max-width: 480px) {
+  .agenda-card {
+    padding: 1.2rem;
   }
-  
-  .agenda-content:hover {
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  }
-  
-  .agenda-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-  }
-  
-  .agenda-time {
-    font-size: 1rem;
-    color: #ffffff;
-    font-weight: 600;
-  }
-  
+
   .agenda-item-title {
-    font-size: 1.4rem;
-    color: rgb(31, 81, 255);
-    margin: 10px 0;
+    font-size: 1.1rem;
   }
-  
-  .agenda-speaker {
-    font-style: italic;
-    font-size: 1rem;
-    color: #ffffff;
-    margin-bottom: 8px;
-  }
-  
-  .agenda-description {
-    color: #ffffff;
-    line-height: 1.6;
-    font-size: 1rem;
-  }
-  
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(-30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .agenda-title {
-      font-size: 2rem;
-    }
-  
-    .agenda-item-title {
-      font-size: 1.2rem;
-    }
-  
-    .agenda-content {
-      padding: 20px;
-    }
-  
-    .agenda-dot {
-      left: -8px;
-    }
-  }
-  
+}

@@ -1,26 +1,101 @@
+:root {
+  --bg-primary: linear-gradient(45deg, #fcb0b2 0%, #fad0c4 50%, #a1c4fd 100%);
+  --about-text-primary: #2d3748;
+  --about-text-secondary: #4a5568;
+  --about-link-color: var(--accent-2);
+  --about-link-hover: var(--accent-1);
+}
+
+.dark {
+  --about-text-primary: #f8fafc;
+  --about-text-secondary: rgba(255, 255, 255, 0.7);
+  --about-link-color: var(--accent-2);
+  --about-link-hover: var(--accent-1);
+}
+
 #about {
-    overflow: hidden;
-    width: 100vw;
-    max-width: 65rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 4rem;
+  background: var(--bg-primary);
+  overflow: hidden;
+  width: 100vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .aboutTitle {
-    font-size: 3rem;
-    font-weight: 600;
-    padding-top: 3rem;
-    margin-bottom: 1.5rem;
+  font-size: 3rem;
+  font-weight: 600;
+  padding-top: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--about-text-primary);
+  background: linear-gradient(45deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 12px rgba(97, 102, 255, 0.2);
 }
 
 .aboutDesc {
-    font-size: 1rem;
-    font-weight: 300;
-    max-width: 50rem;
-    padding: 0 2rem;
+  font-size: 1rem;
+  font-weight: 300;
+  max-width: 50rem;
+  padding: 0 2rem;
+  color: var(--about-text-secondary);
+  line-height: 1.6;
+}
+
+.aboutDesc a {
+  color: var(--about-link-color);
+  text-decoration: none;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.aboutDesc a:hover {
+  color: var(--about-link-hover);
+  text-decoration: underline;
+}
+
+.aboutDesc a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--about-link-hover);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.aboutDesc a:hover::after {
+  transform: scaleX(1);
+}
+
+@media (max-width: 768px) {
+  .aboutTitle {
+    font-size: 2.5rem;
+    padding-top: 2rem;
+  }
+
+  .aboutDesc {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutTitle {
+    font-size: 2rem;
+    padding-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .aboutDesc {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
 }

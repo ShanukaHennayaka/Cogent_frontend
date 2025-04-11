@@ -1,8 +1,7 @@
 .navbar {
-    background: rgb(30, 30, 30);
+    background: linear-gradient(to right, #262630, #374a56);
     height: 5rem;
     width: 100vw;
-    max-width: 75rem;
     margin: 0 auto;
     padding: 1rem 2rem;
     display: flex;
@@ -20,6 +19,7 @@
 }
 
 .desktopMenuListItem {
+    color: aliceblue;
     margin: 1rem;
     cursor: pointer;
 }
@@ -31,8 +31,8 @@
 }
 
 .desktopMenuBtn {
-    background: linear-gradient(to right, #667eea, #764ba2);
-    color: black;
+    background: #4eb2ec;
+    color: aliceblue;
     border: none;
     display: flex;
     align-items: center;
@@ -42,7 +42,7 @@
 }
 
 .desktopMenuBtn:hover {
-    background-color: linear-gradient(to right, #5a67d8, #6b46c1);
+    background-color: linear-gradient(to right, #5d67be, #7b47f6);
 }
 
 .desktopMenuImg {
@@ -72,7 +72,7 @@
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
-    height:fit-content;
+    height: fit-content;
     min-width: 15rem;
     background: rgb(40, 40, 40);
     border-radius: 1rem;
@@ -82,16 +82,18 @@
     color: white;
     padding: 0.5rem 3rem;
     margin: 0.25rem;
-    background: rgb(30, 30, 30);
+    background: rgb(169, 163, 163);
 }
 
 @media screen and (max-width:720px) {
     .mobMenu {
         display: flex;
     }
+
     .desktopMenu {
         display: none;
     }
+
     .desktopMenuBtn {
         display: none;
     }

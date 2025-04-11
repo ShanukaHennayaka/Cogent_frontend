@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { registerUser} from "../../services/api";
+import { registerUser } from "../../services/api";
 import "./register.css";
 
 const Register = () => {
@@ -84,7 +84,7 @@ const Register = () => {
                   required
                 />
               </div>
-              
+
               <input
                 type="tel"
                 name="mobile"

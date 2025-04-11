@@ -1,109 +1,194 @@
+:root {
+  --register-bg: #f8f9fa;
+  --register-card-bg: #ffffff;
+  --register-text-primary: #2d3748;
+  --register-text-secondary: #4a5568;
+  --register-border-color: var(--accent-2);
+  --register-input-bg: #ffffff;
+  --register-input-text: #2d3748;
+  --register-input-border: #e2e8f0;
+  --register-button-bg: linear-gradient(45deg, var(--accent-1), var(--accent-2));
+  --register-link-color: var(--accent-2);
+  --register-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --register-focus-shadow: 0 0 5px rgba(42, 42, 114, 0.2);
+  --register-thank-you-bg: #f0f9ff;
+  --register-thank-you-text: var(--accent-2);
+}
+
+.dark {
+  --register-bg: #121212;
+  --register-card-bg: #1e1e1e;
+  --register-text-primary: #f8fafc;
+  --register-text-secondary: rgba(255, 255, 255, 0.7);
+  --register-border-color: var(--accent-2);
+  --register-input-bg: #2d2d2d;
+  --register-input-text: #f8fafc;
+  --register-input-border: #4a5568;
+  --register-button-bg: linear-gradient(45deg, var(--accent-1), var(--accent-2));
+  --register-link-color: var(--accent-2);
+  --register-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --register-focus-shadow: 0 0 8px rgba(128, 222, 234, 0.3);
+  --register-thank-you-bg: #1a365d;
+  --register-thank-you-text: var(--accent-2);
+}
+
 #register {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-top: 4rem;
-    padding: 2rem 1rem;
-    box-sizing: border-box;
-  }
-  
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  background: aliceblue;
+}
+
+.dark #register {
+  background: #121212;
+}
+
+.register-section {
+  background: var(--register-card-bg);
+  padding: 3rem 1rem;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: var(--register-shadow);
+  border: 2px solid var(--register-border-color);
+  transition: all 0.3s ease;
+}
+
+.register-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--register-text-primary);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 12px rgba(97, 102, 255, 0.2);
+}
+
+.register-description {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--register-text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-group input {
+  flex: 1;
+  min-width: 200px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"] {
+  padding: 0.8rem 1rem;
+  background: var(--register-input-bg);
+  border: 1px solid var(--register-input-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  color: var(--register-input-text);
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--register-border-color);
+  box-shadow: var(--register-focus-shadow);
+}
+
+.consent-label {
+  font-size: 0.9rem;
+  color: var(--register-text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+}
+
+.consent-label a {
+  color: var(--register-link-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.consent-label a:hover {
+  text-decoration: underline;
+}
+
+.register-button {
+  background: var(--register-button-bg);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.register-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.thank-you-message {
+  text-align: center;
+  color: var(--register-thank-you-text);
+  padding: 2rem;
+  background: var(--register-thank-you-bg);
+  border-radius: 10px;
+  box-shadow: var(--register-shadow);
+  margin-top: 1rem;
+  border: 1px solid var(--register-border-color);
+}
+
+@media (max-width: 768px) {
   .register-section {
-    background: rgb(30, 30, 30);
-    padding: 3rem 2rem;
-    border-radius: 12px;
-    max-width: 700px;
-    margin: 0 auto;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 2px solid rgb(31, 81, 255);
+    padding: 2rem 1.5rem;
   }
-  
+
   .register-title {
-    text-align: center;
-    font-size: 2rem;
-    color: #ffff;
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
   }
-  
+
   .register-description {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #e6f7ff;
-    margin-bottom: 2rem;
+    font-size: 1rem;
   }
-  
-  .register-form {
-    display: flex;
+}
+
+@media (max-width: 480px) {
+  .register-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .form-group {
     flex-direction: column;
     gap: 1rem;
   }
-  
-  .form-group {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  .form-group input {
-    color: white;
-    flex: 1;
-    min-width: 200px;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  input[type="url"] {
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    width: 100%;
-    color: white;
-  }
-  
-  input:focus {
-    outline: none;
-    border-color: #2a2a72;
-    box-shadow: 0 0 5px rgba(42, 42, 114, 0.2);
-  }
-  
-  .consent-label {
-    font-size: 0.9rem;
-    color: #ffff;
-    display: flex;
-    align-items: flex;
-    text-align: justify;
-    gap: 0.5rem;
-    line-height: 1.4;
-  }
-  
-  .consent-label a {
-    color: #2a2a72;
-    text-decoration: underline;
-  }
-  
+
   .register-button {
-    background: linear-gradient(to right, #667eea, #764ba2);
-    color: white;
     padding: 0.9rem;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
   }
-  
-  .register-button:hover {
-    background-color: linear-gradient(to right, #5a67d8, #6b46c1);
-  }
-  
-  /* Thank you message */
-  .thank-you-message {
-    text-align: center;
-    color: #2a2a72;
-    padding: 2rem 1rem;
-    background: #e6f7ff;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
-  }
-  
+}
