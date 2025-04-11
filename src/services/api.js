@@ -2,7 +2,7 @@ export const registerUser = async (formData) => {
   try {
     console.log('Sending data:', formData); // Log what you're sending
     
-    const response = await fetch('http://localhost:5000/api/register', {
+    const response = await fetch('https://registration-f8er4dfj3-shanukahennayakas-projects.vercel.app/api/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
